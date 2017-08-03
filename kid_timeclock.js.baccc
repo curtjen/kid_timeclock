@@ -1,0 +1,62 @@
+Module.register("kid_timeclock", {
+    defaults: {
+        updateInterval: 10 * 1000
+    },
+    start: function() {
+
+        Log.info("Starting node helper for:: " + this.name);
+        this.addTime({
+            dbId: "aoeu123",
+            start: 123,
+            end: 123
+        });
+        this.loaded = false;
+    },
+/*    loaded: function(callback) {
+        Log.info('### loaded() worked');
+        
+        // Test running adding a time entry to the db
+        Log.info("### db stuff ###: " + this.addTimeEntry({
+            dbId: "aoeu123",
+            start: 123,
+            end: 124
+        }));
+        
+        callback();
+    },
+*/
+
+    /* runRfid()
+     * Runner for RFID scanner.
+     */
+    runRfid: function() {
+        // this.sendSocketNotification()
+    },
+ 
+    /* addTime(payload)
+     * Add time entry to database
+     *
+     * payload: {
+     *     dbId: STRING,
+     *     start: INT,
+     *     end: INT
+     * }
+     */
+    addTime: function(payload) {
+        this.sendSocketNotification("ADD_TIME", payload);
+    },
+
+    /* scheduleUpdateInterval()
+     * Schedule visual update.
+     */
+    scheduleUpdateInterval: function() {
+        var self = this;
+
+        self.updateDom(self.config.animationSpeed);
+
+        timer = setInterval(function() {
+            self.activeItem++;
+            self.updateDom(self.config.animationSpeed);
+        }, this.config.updateInterval);
+    },
+}

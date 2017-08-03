@@ -1,0 +1,19 @@
+{
+  "name": "kid-timeclock",
+  "version": "0.0.1",
+  "description": "Basic time tracker for kids with using Disney Infinity characters to clock in and out",
+  "dependencies": {
+    "pouchdb": "^6.3.4",
+    "node-cmd": "^3.0.0",
+    "rc522": "^0.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/curtjen/magic-mirror-module_kid-timeclock"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Curtjen",
+  "license": "MIT"
+}
