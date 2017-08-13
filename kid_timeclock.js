@@ -1,9 +1,9 @@
 /* global Log, Module, moment */
 
 /* Magic Mirror
- * Module: Compliments
+ * Module: Kid Timeclock
  *
- * By Michael Teeuw http://michaelteeuw.nl
+ * By Curtjen https://github.com/curtjen
  * MIT Licensed.
  */
 Module.register("kid_timeclock", {
@@ -11,9 +11,6 @@ Module.register("kid_timeclock", {
 	// Module config defaults.
 	defaults: {
 		compliments: {
-			anytime: [
-				"Hey there sexy!"
-			],
 			morning: [
 				"Good morning, handsome!",
 				"Enjoy your day!",
@@ -28,6 +25,9 @@ Module.register("kid_timeclock", {
 				"Wow, you look hot!",
 				"You look nice!",
 				"Hi, sexy!"
+			],
+			anytime: [
+				"Hey there sexy!"
 			]
 		},
 		updateInterval: 4000,
@@ -38,10 +38,6 @@ Module.register("kid_timeclock", {
 	// Set currentweather from module
 	currentWeatherType: "",
 
-	// Define required scripts.
-	getScripts: function() {
-		return ["moment.js"];
-	},
 
     cmd: require("node-cmd"),
 
@@ -217,7 +213,7 @@ Module.register("kid_timeclock", {
 		}
 	},
 
-    /* getDiId() 
+    /* getDiId()
      * Get the ID of the Disney Infinity character via RFID reader
      *
      */
@@ -239,7 +235,7 @@ Module.register("kid_timeclock", {
         );
         return response;
     },
-    
+
     /* addTimeEntry(data)
      * Add time entry to database
      *
@@ -261,7 +257,7 @@ Module.register("kid_timeclock", {
             }
         });
     },
-    
+
     /* createTempTimeEntry(data)
      * Create temporary time entry to be used as the store that adding new entries can compare against
      *
@@ -273,13 +269,13 @@ Module.register("kid_timeclock", {
     createTempTimeEntry: function(data) {
         data.temp = true;
         db.post(data, function (err, resp) {
-            
+
         });
     },
 
     /* getCurrentTimeEntry()
      * Get the current time entry
-     * 
+     *
      * Returns:
      * resp: {
      *     temp: true,
